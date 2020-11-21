@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Planner</title>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css"/>
+</head>
+<body>
+    <ion-app>
+        <ion-header>
+            <ion-toolbar>
+                <ion-toolbar color="primary">
+                    <ion-title>Money Tally</ion-title>
+                </ion-toolbar>
+            </ion-toolbar>
+        </ion-header>
+        <ion-content>  
+            <ion-grid fixed>
+                <ion-row>
+                    <ion-col size-md ="6">
+                        <ion-card>
+                            <ion-card-header>
+                                <ion-card-title>Item</ion-card-title>
+                            </ion-card-header>
+                            <ion-card-content>
+                                <form [formGroup]="loginForm">
+                                    <ion-item>
+                                        <ion-label position="floating">Item name<ion-text color="danger">*</ion-text></ion-label>
+                                        <ion-input required formControlName="item" id="item" type="text"></ion-input>
+                                    </ion-item>
+                                    <ion-item>
+                                        <ion-label position="floating">Description</ion-label>
+                                        <ion-input required formControlName="desc" type="text" id="desc"></ion-input>
+                                    </ion-item>
+                                    <ion-item>
+                                        <ion-label position="floating">Amount</ion-label>
+                                        <ion-input required formControlName="desc" type="number" id="amt"></ion-input>
+                                    </ion-item>
+                                    <ion-grid fixed>
+                                    <ion-row>
+                                        <ion-col size="6"> 
+                                            <ion-button type='button' expand="block" fill="outline" id='add' shape="round" [disabled]="loginForm.invalid">
+                                                <ion-icon slot="icon-only" name="add"></ion-icon>
+                                             </ion-button>
+                                        </ion-col>
+                                        <ion-col size="6">
+                                            <ion-button [disabled]="loginForm.invalid" type='button' id="delete" expand="block" fill="outline" color="danger" shape="round">
+                                                <ion-icon slot="icon-only" name="close"></ion-icon>
+                                             </ion-button>
+                                        </ion-col>
+                                    </ion-row>
+                                </ion-grid>
+                                </form>
+                            </ion-card-content>
+                        </ion-card>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+            <ion-grid fixed>
+                <ion-row>
+                    <ion-col size-md ="6">
+                        <ion-card>
+                            <ion-card-header>
+                                <ion-card-title>List of items</ion-card-title>
+                            </ion-card-header>
+                            <ion-card-content>
+                                <ion-grid fixed>
+                                    <ion-row>
+                                        <ion-col size-md ="12">
+                                            <div id="showData"></div>
+                                        </ion-col>
+                                    </ion-row>
+                                </ion-grid>
+                            </ion-card-content>
+                        </ion-card>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col size-md="6">
+                            <ion-card>
+                                <ion-card-header>
+                                    <ion-card-title>Total Amount</ion-card-title>
+                                </ion-card-header>
+                                <ion-card-content>
+                                    <ion-grid fixed>
+                                        <ion-row>
+                                            <div id="disAmt"></div>
+                                        </ion-row>
+                                    </ion-grid>
+                                </ion-card-content>
+                            </ion-card>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+            <div id='alert'></div>
+        </ion-content>
+    </ion-app>
+    <script type="text/javascript"  src="app.js" charset="utf-8"></script>
+</body>
+</html>
